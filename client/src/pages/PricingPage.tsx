@@ -1,4 +1,3 @@
-rm -f client/src/pages/PricingPage.tsx && cat > client/src/pages/PricingPage.tsx << 'ENDOFFILE'
 import { useState } from "react";
 import { Check, ShoppingCart, Store, Share2, BarChart3, AppWindow } from "lucide-react";
 
@@ -178,4 +177,3 @@ export default function PricingPage() {
     </div>
   );
 }
-ENDOFFILE
