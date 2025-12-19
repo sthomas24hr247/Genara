@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import PricingPage from "./pages/PricingPage";
+import SolutionsPage from "./pages/SolutionsPage";
+import SolutionDetailPage from "./pages/SolutionDetailPage";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Switch>
           <Route path="/" component={HomePage} />
           <Route path="/pricing" component={PricingPage} />
+          <Route path="/solutions" component={SolutionsPage} />
+          <Route path="/solutions/:slug" component={SolutionDetailPage} />
           <Route>
             <div className="flex items-center justify-center min-h-[60vh]">
               <h1 className="text-2xl font-semibold text-gray-600">404 - Page Not Found</h1>

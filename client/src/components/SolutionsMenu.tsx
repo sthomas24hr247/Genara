@@ -97,46 +97,64 @@ export default function SolutionsMenu() {
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 w-[900px] bg-genara-dark border border-gray-800 rounded-2xl shadow-2xl p-8 mt-2 z-50">
-          <div className="grid grid-cols-5 gap-8">
-            {menuSections.map((section) => (
-              <div key={section.title}>
-                <h3 className="text-xs font-semibold text-green-400 mb-4 tracking-wider">
-                  {section.title}
-                </h3>
-                <ul className="space-y-3">
-                  {section.items.map((item) => (
-                    <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        className="flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors group"
-                      >
-                        <item.icon className="w-4 h-4 text-gray-500 group-hover:text-green-400 transition-colors" />
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+        <>
+          {/* Invisible bridge to prevent menu from closing */}
+          <div className="absolute top-full left-0 right-0 h-4" />
+          
+          <div className="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 w-[900px] bg-genara-dark border border-gray-800 rounded-2xl shadow-2xl p-8 z-50">
+            <div className="grid grid-cols-5 gap-8">
+              {menuSections.map((section) => (
+                <div key={section.title}>
+                  <h3 className="text-xs font-semibold text-green-400 mb-4 tracking-wider">
+                    {section.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {section.items.map((item) => (
+                      <li key={item.label}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-2 text-gray-300 hover:text-white text-sm transition-colors group"
+                        >
+                          <item.icon className="w-4 h-4 text-gray-500 group-hover:text-green-400 transition-colors" />
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
 
-          <div className="mt-8 pt-6 border-t border-gray-800 grid grid-cols-3 gap-6">
-            <Link href="/solutions/commerce-agents" className="group p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-              <p className="text-green-400 text-xs font-semibold mb-1 tracking-wider">CUSTOMIZE & EXTEND</p>
-              <p className="text-white font-medium">Commerce for Agents</p>
-              <p className="text-gray-400 text-sm">Build with our agent tools</p>
-            </Link>
-            <Link href="/solutions/app-store" className="group p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-              <p className="text-white font-medium">Genara App Store</p>
-              <p className="text-gray-400 text-sm">Largest commerce ecosystem</p>
-            </Link>
-            <Link href="/developers" className="group p-4 rounded-xl hover:bg-gray-800/50 transition-colors">
-              <p className="text-white font-medium">Genara.dev</p>
-              <p className="text-gray-400 text-sm">Dev docs, CLI, and more</p>
-            </Link>
+            <div className="mt-8 pt-6 border-t border-gray-800 grid grid-cols-3 gap-6">
+              <Link 
+                href="/solutions" 
+                onClick={() => setIsOpen(false)}
+                className="group p-4 rounded-xl hover:bg-gray-800/50 transition-colors"
+              >
+                <p className="text-green-400 text-xs font-semibold mb-1 tracking-wider">CUSTOMIZE & EXTEND</p>
+                <p className="text-white font-medium">Commerce for Agents</p>
+                <p className="text-gray-400 text-sm">Build with our agent tools</p>
+              </Link>
+              <Link 
+                href="/solutions" 
+                onClick={() => setIsOpen(false)}
+                className="group p-4 rounded-xl hover:bg-gray-800/50 transition-colors"
+              >
+                <p className="text-white font-medium">Genara App Store</p>
+                <p className="text-gray-400 text-sm">Largest commerce ecosystem</p>
+              </Link>
+              <Link 
+                href="/solutions" 
+                onClick={() => setIsOpen(false)}
+                className="group p-4 rounded-xl hover:bg-gray-800/50 transition-colors"
+              >
+                <p className="text-white font-medium">Genara.dev</p>
+                <p className="text-gray-400 text-sm">Dev docs, CLI, and more</p>
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
