@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import PricingPage from "./pages/PricingPage";
 import SolutionsPage from "./pages/SolutionsPage";
 import SolutionDetailPage from "./pages/SolutionDetailPage";
+import WebsiteBuilderPage from "./pages/WebsiteBuilderPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" component={HomePage} />
           <Route path="/pricing" component={PricingPage} />
           <Route path="/solutions" component={SolutionsPage} />
+          <Route path="/solutions/website-builder" component={WebsiteBuilderPage} />
           <Route path="/solutions/:slug" component={SolutionDetailPage} />
           <Route>
             <div className="flex items-center justify-center min-h-[60vh]">
